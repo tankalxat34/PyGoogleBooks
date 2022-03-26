@@ -8,7 +8,10 @@ Author: tankalxat34
 Description: 
     Python package for convenient work with Google Books service
 Important links:
-    
+    - GitHub: https://github.com/tankalxat34/PyGoogleBooks
+    - Email: mailto:tankalxat34@gmail.com?subject=User%20of%20UploadgramPyAPI
+    - Telegram: https://t.me/tankalxat34
+    - Telegram Channel: https://t.me/tankalxat34_official
 
 """
 
