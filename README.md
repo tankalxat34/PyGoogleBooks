@@ -8,6 +8,8 @@ Python package for convenient work with Google Books service
 # How to use?
 Create new python-file and paste here this code:
 ```py
+import PyGoogleBooks
+
 gb = PyGoogleBooks.GoogleBook("G1YUEAAAQBAJ", w=1280)
 print(gb.name)
 print(gb.authors)
