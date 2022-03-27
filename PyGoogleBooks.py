@@ -18,6 +18,7 @@ import requests, re
 
 USER_HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36",
+    "cookies": "NID=511=cF7Xznuqv-ETmVsBfjWsET4b4iUwu4jaOF1cn_uS2r9diR68Bn6M5SXMbVmYYXcSM8CqbwrX6EC87DSGkh5WjIFi2rim90P49dkoYua9QVfTbrnbySDxqo90ThIXMNHVmGSl0vxCQ5iIusdQKFG4Jy0N-_8oMK9m6qpznt8h8rA"
 }
 
 DEFAULT_LEN_ID = 12
@@ -44,14 +45,13 @@ class InvalidIdLength(Exception):
 
 
 class GoogleBook:
-    def __init__(self, id: str, lpg="PP1", pg="PA0", hl="ru", jscmd="click3", cookies="NID=511=cF7Xznuqv-ETmVsBfjWsET4b4iUwu4jaOF1cn_uS2r9diR68Bn6M5SXMbVmYYXcSM8CqbwrX6EC87DSGkh5WjIFi2rim90P49dkoYua9QVfTbrnbySDxqo90ThIXMNHVmGSl0vxCQ5iIusdQKFG4Jy0N-_8oMK9m6qpznt8h8rA", w=None):
+    def __init__(self, id: str, lpg="PP1", pg="PA0", hl="ru", jscmd="click3", w=None):
         """Create GoogleBook object
 
         :param id:      The string ID of the book. It consists of 12 characters containing uppercase and lowercase Latin letters and dashes.
         :param lgp:     String parameter "lgp" in url with default value as "PA0".
         :param hl:      String parameter "hl" in url with default value as "ru".
         :param jscmd:   String parameter "jscmd" in url with default value as "click3".
-        :param cookies: String parameter "cookies" in url with default value of NID cookie.
         :param w:       Integer parameter with size of page. If you want to get page with good quality - use the value 1280
         """
 
@@ -66,7 +66,7 @@ class GoogleBook:
         self.jscmd = jscmd
         self.w = w
 
-        self.cookies = cookies
+        self.cookies = USER_HEADERS["cookies"]
         self.dict_cookies = {"cookie": self.cookies}
 
         self.req = requests.get(self.base_url + f"?id={self.id}&lpg={self.lpg}&hl={self.hl}&pg={self.pg}&jscmd={self.jscmd}&w={self.w}", headers=USER_HEADERS | self.dict_cookies)
