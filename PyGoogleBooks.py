@@ -111,11 +111,6 @@ class GoogleBook:
         return self.json_main_response['page'][1]['pid'][:-1]
 
     @property
-    def length(self):
-        """Get count of pages"""
-        return int(self.json_main_response["page"][len(self.json_main_response["page"])-1]["pid"][2:])
-
-    @property
     def cover_link(self):
         """Get link to cover of book"""
         return self.get_link_to_page(page_number=0)
