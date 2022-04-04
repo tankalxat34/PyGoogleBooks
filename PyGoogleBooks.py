@@ -45,16 +45,15 @@ class InvalidIdLength(Exception):
 
 
 class GoogleBook:
+    """Create GoogleBook object
+
+    :param id:      The string ID of the book. It consists of 12 characters containing uppercase and lowercase Latin letters and dashes.
+    :param lgp:     String parameter "lgp" in url with default value as "PA0".
+    :param hl:      String parameter "hl" in url with default value as "ru".
+    :param jscmd:   String parameter "jscmd" in url with default value as "click3".
+    :param w:       Integer parameter with size of page. If you want to get page with good quality - use the value 1280
+    """
     def __init__(self, id: str, lpg="PP1", pg="PA0", hl="ru", jscmd="click3", w=None):
-        """Create GoogleBook object
-
-        :param id:      The string ID of the book. It consists of 12 characters containing uppercase and lowercase Latin letters and dashes.
-        :param lgp:     String parameter "lgp" in url with default value as "PA0".
-        :param hl:      String parameter "hl" in url with default value as "ru".
-        :param jscmd:   String parameter "jscmd" in url with default value as "click3".
-        :param w:       Integer parameter with size of page. If you want to get page with good quality - use the value 1280
-        """
-
         if len(id) != DEFAULT_LEN_ID:
             raise InvalidIdLength()
         self.id = id
